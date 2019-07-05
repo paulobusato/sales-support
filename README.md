@@ -1,2 +1,0 @@
-# sales-support
-Sales Support
