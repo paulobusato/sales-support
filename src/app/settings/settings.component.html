@@ -1,0 +1,8 @@
+<form fxLayout="column">
+  <mat-form-field>
+    <mat-label>Theme</mat-label>
+    <mat-select [(value)]="selectedTheme">
+        <mat-option *ngFor="let theme of themeOptions" [value]="theme">{{ theme }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>

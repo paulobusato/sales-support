@@ -13,18 +13,20 @@ import { MaterialModule } from './material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { OrderModule } from './order/order.module';
 import { StoreModule } from '@ngrx/store';
-import { reducer } from './order/order.reducer.ts';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { environment } from 'src/environments/environment';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { SettingsComponent } from './settings/settings.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -33,14 +35,15 @@ import { DashboardModule } from './dashboard/dashboard.module';
     MaterialModule,
     FlexLayoutModule,
     OrderModule,
-    StoreModule.forRoot({ order: reducer}),
+    StoreModule.forRoot({}),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     ChartsModule,
     DashboardModule,
+    SharedModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
