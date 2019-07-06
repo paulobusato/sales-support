@@ -1,0 +1,30 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row
+    fxLayout="row"
+    fxLayoutAlign="space-around center">
+    <a mat-button>
+      <div fxLayout="column" fxLayoutAlign="center center">
+        <mat-icon>settings</mat-icon>
+        <span>Configurações</span>
+      </div>
+    </a>
+    <a mat-button [routerLink]="['/dashboard']">
+      <div fxLayout="column" fxLayoutAlign="center center">
+        <mat-icon>dashboard</mat-icon>
+        <span>Dashboard</span>
+      </div>
+    </a>
+    <a mat-button [routerLink]="['/orders']">
+      <div fxLayout="column" fxLayoutAlign="center center">
+        <mat-icon>list</mat-icon>
+        <span>Listar</span>
+      </div>
+    </a>
+    <a mat-button [routerLink]="['/orders/new']">
+      <div fxLayout="column" fxLayoutAlign="center center">
+        <mat-icon>add</mat-icon>
+        <span>Criar</span>
+      </div>
+    </a>
+  </mat-toolbar-row>
+</mat-toolbar>

@@ -1,0 +1,56 @@
+<mat-horizontal-stepper>
+  <mat-step label="Cabeçalho" [stepControl]="cabecalhoForm">
+    <form  [formGroup]="cabecalhoForm" fxLayout="column" fxLayoutAlign="start center">
+      <mat-form-field>
+        <mat-label>Empresa</mat-label>
+        <mat-select formControlName="company">
+          <mat-option
+            *ngFor="let company of (companies$ | async)"
+            [value]="company">
+            {{ company.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Tipo de Operação</mat-label>
+        <mat-select formControlName="operationType">
+          <mat-option
+            *ngFor="let operationType of (operationTypes$ | async)"
+            [value]="operationType">
+            {{ operationType.description }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Parceiro" formControlName="customer" [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option
+            *ngFor="let customer of (filteredOptions$ | async)"
+            [value]="customer.name">
+            {{ customer.name }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <nav fxLayout="row" fxLayoutAlign="end center">
+        <button type="button" mat-button matStepperNext>Próximo</button>
+      </nav>
+    </form>
+  </mat-step>
+  <mat-step label="Itens">
+    <form [formGroup]="itemForm" fxLayout="column" fxLayoutAlign="start center" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <input matInput placeholder="Produto" formControlName="product">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Quantidade" formControlName="quantity">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Valor Unitário" formControlName="price">
+      </mat-form-field>
+      <nav fxLayout="row" fxLayoutAlign="end center">
+        <button type="button" mat-button matStepperPrevious>Voltar</button>
+        <button type="submit" mat-button>Salvar</button>
+      </nav>
+    </form>
+  </mat-step>
+</mat-horizontal-stepper>
