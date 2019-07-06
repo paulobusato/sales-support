@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import {
    MatToolbarModule,
@@ -13,30 +12,21 @@ import {
    MatCardModule,
 } from '@angular/material';
 
+const materialModules = [
+  MatToolbarModule,
+  MatButtonModule,
+  MatIconModule,
+  MatStepperModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatSelectModule,
+  MatAutocompleteModule,
+  MatCardModule,
+];
+
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatIconModule,
-    MatStepperModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatAutocompleteModule,
-    MatCardModule,
-  ],
-  exports: [
-    MatToolbarModule,
-    MatButtonModule,
-    MatIconModule,
-    MatStepperModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatAutocompleteModule,
-    MatCardModule,
-  ]
+  imports: materialModules,
+  exports: materialModules,
 })
 export class MaterialModule { }
