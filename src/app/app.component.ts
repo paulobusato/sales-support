@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   constructor(private overlayContainer: OverlayContainer, private sharedService: SharedService) {}
 
   ngOnInit() {
+    this.overlayContainer.getContainerElement().classList.add(this.theme);
     this.sharedService.onChangeTheme.subscribe({
       next: (theme: string) => {
         this.theme = theme;
@@ -21,4 +22,15 @@ export class AppComponent implements OnInit {
       }
     });
   }
+
+  // onThemeChange(theme:string) {
+  //   this.theme = theme;
+  //   //console.log(theme);
+  //   const overlayContainerClasses = this.overlayContainer.getContainerElement().classList;
+  //   const themeClassesToRemove = Array.from(overlayContainerClasses).filter((item: string) => item.includes('-theme'));
+  //   if (themeClassesToRemove.length) {
+  //      overlayContainerClasses.remove(...themeClassesToRemove);
+  //   }
+  //   overlayContainerClasses.add(theme);
+  // }
 }
