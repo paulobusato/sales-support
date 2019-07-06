@@ -6,6 +6,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { ChartsModule } from 'ng2-charts';
 
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,6 +22,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { SettingsComponent } from './settings/settings.component';
 import { SharedModule } from './shared/shared.module';
+
+export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
 @NgModule({
   declarations: [
@@ -42,6 +46,7 @@ import { SharedModule } from './shared/shared.module';
     ChartsModule,
     DashboardModule,
     SharedModule,
+    NgxMaskModule.forRoot(),
   ],
     providers: [],
     bootstrap: [AppComponent]

@@ -13,6 +13,7 @@ export interface OperationType {
 
 export interface Customer {
   name: string;
+  cnpj: number;
 }
 
 @Injectable({

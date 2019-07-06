@@ -1,0 +1,15 @@
+<form fxLayout="column">
+  <mat-form-field>
+    <input matInput placeholder="Customer" autocomplete="off">
+  </mat-form-field>
+</form>
+<section>
+  <mat-card *ngFor="let customer of (customers$ | async)">
+    <mat-card-header>
+      <mat-card-title>{{ customer.name }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>CNPJ: {{ customer.cnpj | mask: '00.000.000/0000-00' }}</p>
+    </mat-card-content>
+  </mat-card>
+</section>
